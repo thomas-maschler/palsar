@@ -1,6 +1,0 @@
-name: stactools-palsar
-channels:
-  - conda-forge
-  - defaults
-dependencies:
-  - gdal

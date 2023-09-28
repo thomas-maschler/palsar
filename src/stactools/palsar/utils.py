@@ -1,5 +1,6 @@
 import os
 import shutil
+from pathlib import Path
 from typing import List
 
 
@@ -9,7 +10,7 @@ def extract_archive(archive: str, output_directory: str = '') -> str:
     return the folder
     """
     if output_directory == '':
-        output_directory = archive.split('.')[0]
+        output_directory = f"{Path(archive).parent}/{Path(archive).stem.split('.')[0]}"
     shutil.unpack_archive(archive, output_directory)
 
     return output_directory

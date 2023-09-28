@@ -110,6 +110,9 @@ def create_item(assets_hrefs: Dict, root_href: str = '') -> Item:
     # Get the general parameters from the first asset
     asset_href = list(assets_hrefs.values())[0]
     year = os.path.basename(asset_href).split("_")[1]
+    if len(year) == 2:
+        year = f"20{year}"
+
     item_root = '_'.join((os.path.basename(asset_href)).split("_")[0:2])
 
     with rasterio.open(asset_href) as dataset:
